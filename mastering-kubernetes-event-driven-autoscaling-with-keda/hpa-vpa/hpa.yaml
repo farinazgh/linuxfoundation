@@ -1,0 +1,27 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: example-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+
+#  Value Metrics
+#  absolute numbers indicating direct quantities.e.g. the number of requests per second that a web server is handling falls under this category.
+#
+#  Average Metrics
+#  the average value across all instances or pods in a deployment. e.g. the average CPU usage across all pods running a particular application. offering a collective view rather than focusing on individual instances.
+
+#  Utilization Metrics
+#  show the percentage of requested resources that are being utilized. e.g. is memory utilization, represented as a percentage of the total allocated memory.
