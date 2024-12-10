@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myserver-deployment
+  labels:
+    app: myserver
+spec:
+  replicas: 2  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: myserver
+  template:
+    metadata:
+      labels:
+        app: myserver
+        prometheus.io/scrape: "true" # Enable Prometheus scraping
+    spec:
+      containers:
+        - name: myserver
+          image: polarisfgh/myserver:latest
+          ports:
+            - containerPort: 8080
+              name: http-metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myserver-service
+  labels:
+    app: myserver
+spec:
+  selector:
+    app: myserver
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

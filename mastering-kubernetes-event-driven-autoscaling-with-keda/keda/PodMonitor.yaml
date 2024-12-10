@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: myserver-pod-monitor
+  namespace: monitoring
+  labels:
+    release: prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: myserver
+  namespaceSelector:
+    matchNames:
+      - default
+  podMetricsEndpoints:
+    - port: http
+      interval: 15s
+      path: /metrics
+  relabelings:
+    - action: labelmap
+      regex: __meta_kubernetes_pod_label_(.+)

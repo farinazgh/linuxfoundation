@@ -1,0 +1,517 @@
+1  clear
+2  apt-get update && apt-get upgrade -y
+3  apt-get install -y vim
+4  apt install curl apt-transport-https vim git wget gnupg2 software-properties-common lsb-release ca-certificates uidmap -y
+5  swapoff -a
+6  modprobe overlay
+7  modprobe br_netfilter
+8  cat << EOF | tee /etc/sysctl.d/kubernetes.conf
+9  net.bridge.bridge-nf-call-ip6tables = 1
+10  net.bridge.bridge-nf-call-iptables = 1
+11  net.ipv4.ip_forward = 1
+12  EOF
+13  sudo su
+14  kubectl get all --all-namespaces
+15  mkdir -p $HOME/.kube
+16  kubectl get pods
+17  kubectl get all --all-namespaces
+18  ls
+19  kubectl apply -f calico.yaml \
+20  kubectl apply -f calico.yaml
+21  CLEAR
+22  clear
+23  kubectl get all --all-namespaces
+24  kubectl get all --all-namespaces -o watch
+25  kubectl get all --all-namespaces -watch
+26  kubectl get all --all-namespaces
+27  kubectl get all --all-namespaces -watch
+28  kubectl get ns
+29  kubectl get all --all-namesPACES
+30  kubectl get all --all-namespaces
+31  clear
+32  kubcet
+33  ls -al
+34  cd .kube/
+35  ls -al
+36  cat config
+37  clear
+38  cat config
+39  sudo iptables -L
+40  clear
+41  kubectl get nodes --kubeconfig .kube/config
+42  unzip awscliv2.zip
+43  cd .kube
+44  cat config
+45  clear
+46  cd ..
+47  sudo iptables -L > iptables.txt
+48  aws s3 cp iptables.txt s3://farinaz-first-bucket
+49  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+50  unzip awscliv2.zip
+51  sudo ./aws/install
+52  sudo apt install unzip
+53  sudo ./aws/install
+54  aws configure
+55  aws s3 cp iptables.txt s3://farinaz-first-bucket
+56  kubectl get all --all-namespaces
+57  uname -a
+58  helm
+59  ssh -i /path/to/your-key-pair.pem ubuntu@your-ec2-instance-public-dns
+60  sudo apt-get update
+61  sudo apt-get install apt-transport-https --yes
+62  sudo apt-get install ca-certificates --yes
+63  curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+64  sudo apt-get install -y gnupg
+65  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2D230C5F
+66  sudo apt-get install -y software-properties-common
+67  sudo add-apt-repository "deb https://baltocdn.com/helm/stable/debian/ all main"
+68  sudo apt-get update
+69  sudo apt-get install helm
+70  clear
+71  kubectl create namespace kong
+72  helm repo add kong https://charts.konghq.com
+73  helm repo update
+74  vi tls.crt
+75  cat tls.crt
+76  vi tls.key
+77  kubectl create secret tls kong-cluster-cert -n kong --cert=tls.crt --key=tls.key
+78  vi values.yaml
+79  cat values.yaml
+80  helm install my-kong kong/kong -n kong --values ./values.yaml
+81  kubectl get all namespace kong
+82  kubectl get all -n kong -o wide
+83  kubectl get all -n kong
+84  kubectl get all -n kong > kong.txt
+85  aws s3 cp kong.txt s3://farinaz-first-bucket/
+86  history
+87  kubectl get pods  -n kong
+88  kubectl describe pod my-kong-kong-745648665b-pdqd4
+89  kubectl describe pod my-kong-kong-745648665b-pdqd4 -n kong
+90  clear
+91  kubectl get all -n kong
+92  kubectl get all -n kong -o wide
+93  clear
+94  pw
+95  pwd
+96  ls
+97  kubectl get pod my-kong-kong-745648665b-pdqd4 -n kong -o yaml > my-pod.yaml
+98  cat my-pod.yaml
+99  kubectl get service my-kong-kong-manager -n kong -o yaml> my-kong-kong-manager.yaml
+  100  ls
+  101  cat my-kong-kong-manager.yaml
+  102  kubectl get service -n kong -o yaml >  my-kong-kong-proxy.yaml
+  103  ls -ler
+  104  ls -lrt
+  105  cat my-kong-kong-proxy.yaml
+  106  kubectl get deployment my-kong-kong -n kong -o yaml > my-kong-kong-deployment.yaml
+  107  cat my-kong-kong-deployment.yaml
+  108  kubectl get replicaset my-kong-kong-745648665b -n kong -o yaml >  my-kong-kong-replicaset.yaml
+  109  kubectl get all -n kong -o yaml >all.yaml
+  110  kubectl get all,configmap,secret -n kong -o yaml >abseloute-all.yaml
+  111  ls
+  112  mkdir YAML
+  113  mv *.yaml YAML/
+  114  ls
+  115  ls -lrt
+  116  cd YAML/
+  117  ls
+  118  aws s3 cp *.* s3://farinaz-first-bucket/yamls/
+  119  aws s3 cp * s3://farinaz-first-bucket/yamls/
+  120  aws s3 cp . s3://farinaz-first-bucket/yamls/ --recursive
+  121  clear
+  122  kubectl version
+  123  kubectl get nodes
+  124  kubectl get all --all-namespaces
+  125  kubectl get namespaces
+  126  kubectl get deployments -n kong
+  127  kubectl delete deployment my-kong-kong -n kong
+  128  kubectl get all -n kong
+  129  kubectl delete service my-kong-kong-manager -n kong
+  130  kubectl delete service my-kong-kong-proxy -n kong
+  131  docker ps
+  132  curl -fsSL https://get.docker.com/ | sh
+  133  sudo systemctl enable --now docker
+  134  sudo usermod -aG docker $USER
+  135  # Refresh the shell session by logging out and back in, then verify:
+  136  docker ps
+  137  sudo docker ps -a
+  138  sudo docker images
+  139  helm
+  140  wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64
+  141  chmod +x hey_linux_amd64
+  142  sudo mv hey_linux_amd64 /usr/local/bin/hey
+  143  hey --help
+  144  wget https://go.dev/dl/go1.21.7.linux-amd64.tar.gz
+  145  sudo tar -C /usr/local -xzf go1.21.7.linux-amd64.tar.gz
+  146  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+  147  echo 'export GOPATH=$HOME/go' >> ~/.profile
+  148  source ~/.profile
+  149  go version
+  150  clear
+  151  kubectl get all --all-namespaces
+  152  helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+  153  helm upgrade --install metrics-server metrics-server/metrics-server -n kube-system --set args[0]=--kubelet-insecure-tls
+  154  kubectl get all --all-namespaces
+  155  kubectl get pods -n kube-system
+  156  kubectl describe pod metrics-server-684dd857fc-wmpqv -n kube-system
+  157  kubectl get nodes -o wide
+  158  kubectl describe node ip-172-31-40-206 | grep taint
+  159  kubectl describe node ip-172-31-40-206 | grep Taint
+  160  kubectl taint nodes NODE_NAME node-role.kubernetes.io/control-plane:NoSchedule-
+  161  kubectl get nodes
+  162  kubectl taint nodes ip-172-31-40-206 node-role.kubernetes.io/control-plane:NoSchedule-
+  163  kubectl get pods -n kube-system
+  164  kubectl get pods -n kube-system -w
+  165  kubectl describe node ip-172-31-40-206 | grep Taint
+  166  kubectl taint nodes ip-172-31-40-206 node.kubernetes.io/disk-pressure:NoSchedule-
+  167  kubectl get pods -n kube-system -w
+  168  kubectl describe node ip-172-31-40-206 | grep Taint
+  169  kubectl taint nodes ip-172-31-40-206 node.kubernetes.io/disk-pressure:NoSchedule-
+  170  kubectl describe node ip-172-31-40-206 | grep Taint
+  171  kubectl edit deployment metrics-server -n kube-system
+  172  kubectl get deployments --all-namespaces
+  173  kubectl get pod --all-namespaces
+  174  clear
+  175  kubectl get all --all-namespaces
+  176  clear
+  177  df -h
+  178  exit
+  179  sudo growpart /dev/xvda 1
+  180  sudo resize2fs /dev/xvda1
+  181  df -h
+  182  kubectl describe node ip-172-31-40-206 | grep Conditions -A 10
+  183  history
+  184  vi deployment.yaml
+  185  kubectl apply -f deployment.yaml
+  186  kubectl get deployments
+  187  kubectl get pods
+  188  kubectl get deployments
+  189  kubectl autoscale deployment go-http-server --min=2 --max=5 --cpu-percent=50
+  190  kubectl get hpa
+  191  kubectl get hpa go-http-server -o yaml
+  192  curl http://localhost:8080/
+  193  docker build -t polarisfgh/httpserver:latest .
+  194  ls
+  195  cd httpserver/
+  196  docker build -t polarisfgh/httpserver:latest .
+  197  mv main.go old.main.go
+  198  vi main.go
+  199  rm old.main.go
+  200  docker build -t polarisfgh/httpserver:latest .
+  201  docker push polarisfgh/httpserver:latest
+  202  curl 127.0.0.1:8080
+  203  curl 127.0.0.1
+  204  clear
+  205  kubectl port-forward deployment/go-http-server 8080:8080
+  206  clear
+  207  pwd
+  208  ls
+  209  history
+  210  clear
+  211  mkdir httpserver
+  212  cd httpserver
+  213  go mod init httpserver
+  214  vi main.go
+  215  vi Dockerfile
+  216  module httpserver
+  217  ls
+  218  cat main.go
+  219  cat Dockerfile
+  220  docker login
+  221  docker login -u polarisfgh
+  222  docker build -t polarisfgh/httpserver:latest .
+  223  ls
+  224  ls -lrt
+  225  rm *.zip
+  226  rm *.gz
+  227  ls -lrt
+  228  cd httpserver/
+  229  ls
+  230  cat Dockerfile
+  231  pwd
+  232  ls -lrt
+  233  rm -rf *.*
+  234  ls
+  235  rm Dockerfile
+  236  vi main.go
+  237  vi  Dockerfile
+  238  go mod init httpserver
+  239  go mod tidy
+  240  ls -lrta
+  241  docker build -t polarisfgh/go-http-server:lab-03 .
+  242  docker push polarisfgh/go-http-server:lab-03
+  243  history
+  244  kubectl get deployments
+  245  pwd
+  246  ls
+  247  tar cvf httpserver/ httpserver.tar
+  248  gzip httpserver/
+  249  ls
+  250  cd httpserver/
+  251  mv Dockerfile Dockerfile.old
+  252  vi Dockerfile
+  253  rm Dockerfile.old
+  254  docker build -t polarisfgh/go-http-server:lab-03 .
+  255  docker push polarisfgh/go-http-server:lab-03
+  256  cd ..
+  257  zip -r my_directory.zi httpserver/
+  258  sudo apt install zip
+  259  zip -r my_directory.zi httpserver/
+  260  ls
+  261  ls -lrt
+  262  mv my_directory.zi my_directory.zip
+  263  ls
+  264  aws s3 cp my_directory.zip s3://farinaz-first-bucket/
+  265  pwd
+  266  ls
+  267  cd httpserver/
+  268  ls
+  269  cat Dockerfile
+  270  history
+  271  docker build -t polarisfgh/go-http-server:lyra .
+  272  mv Dockerfile Dockerfile.old
+  273  vi Dockerfile
+  274  docker build -t polarisfgh/go-http-server:lyra .
+  275  mv Dockerfile Dockerfile.old
+  276  vi Dockerfile
+  277  docker build -t polarisfgh/go-http-server:lyra .
+  278  docker push polarisfgh/go-http-server:lyra
+  279  pwd
+  280  ls
+  281  cd httpserver/
+  282  ls -lrt
+  283  cat Dockerfile
+  284  cat main.go
+  285  clear
+  286  kubectl get all --all-namespaces
+  287  kubectl get namespaces
+  288  kubectl delete namespace kong
+  289  kubectl get namespaces
+  290  clear
+  291  pwd
+  292  ls -lrt
+  293  rm my_directory.zip
+  294  ls
+  295  cd httpserver/
+  296  ls
+  297  ls -lrt
+  298  cat main.go
+  299  cat Dockerfile
+  300  cat main.go
+  301  ls -lrt
+  302  rm Dockerfile.old
+  303  mv Dockerfile Dockerfile.old
+  304  vi Dockerfile
+  305  go mod tidy
+  306  ls
+  307  rm Dockerfile.old
+  308  docker build -t polarisfgh/luna-http-server:luna .
+  309  docker push polarisfgh/luna-http-server:luna
+  310  ls
+  311  cd ..
+  312  ls
+  313  rm deployment.yaml
+  314  vi deployment.yaml
+  315  kubectl apply -f deployment.yaml
+  316  clear
+  317  kubectl get all
+  318  kubectl delete deployment go-http-server
+  319  clear
+  320  kubectl get all
+  321  kubectl describe pod luna-http-server-6bbf9f6f5c-zdsk
+  322  kubectl logs luna-http-server-6bbf9f6f5c-zdskt
+  323  kubectl get nodes -o wide
+  324  uname -m
+  325  GOOS=linux GOARCH=amd64 go build -o httpserver .
+  326  pwd
+  327  cd httpserver/
+  328  GOOS=linux GOARCH=amd64 go build -o httpserver .
+  329  ./httpserver
+  330  chmod +x httpserver
+  331  ./httpserver
+  332  GOOS=linux GOARCH=amd64 go build -o httpserver .
+  333  file httpserver
+334  httpserver: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, ...
+  335  ./httpserver
+  336  file httpserver
+  337  ls
+  338  cat main.go
+  339  GOOS=linux GOARCH=amd64 go build -o httpserver main.go
+  340  file httpserver
+  341  ls -lrt
+  342  rm -f httpserver
+  343  GOOS=linux GOARCH=amd64 go build -o httpserver main.go
+  344  file httpserver
+  345  rm -f httpserver
+  346  go version
+  347  vi test.go
+  348  GOOS=linux GOARCH=amd64 go build -o testapp test.go
+  349  file testapp
+  350  ls -al
+  351  rm testapp
+  352  rm test.go
+  353  ls
+  354  GOOS=linux GOARCH=amd64 go build -o httpserver main.go
+  355  ls
+  356  file httpserver
+  357  alias go
+  358  which go
+  359  GOOS=linux GOARCH=amd64 go build -o myserver main.go
+  360  ls
+  361  cat main.go
+  362  ls
+  363  vi main.go
+  364  rm -f httpserver
+  365  GOOS=linux GOARCH=amd64 go build -o myserver main.go
+  366  ls
+  367  file myserver
+  368  ./myserver
+  369  curl http://localhost:8080
+  370  curl http://localhost:8080/metrics
+  371  ./myserver
+  372  ./myserver &
+  373  curl http://localhost:8080
+  374  curl http://localhost:8080/metrics
+  375  ls
+  376  mv Dockerfile Dockerfile.old
+  377  vi Dockerfile
+  378  docker build -t polarisfgh/myserver:latest .
+  379  docker run -p 8080:8080 your-dockerhub-username/myserver:latest
+  380  docker run -p 8080:8080 polarisfgh/myserver:latest
+  381  kill -9 85128
+  382  docker run -p 8080:8080 polarisfgh/myserver:latest
+  383  docker push polarisfgh/myserver:latest
+  384  ls
+  385  kubectl get deployments
+  386  kubectl delete deployment luna-http-server
+  387  kubectl get all
+  388  kubectl delete dervice luna-http-server
+  389  kubectl delete seervice luna-http-server
+  390  kubectl delete service luna-http-server
+  391  clear
+  392  kubectl get all
+  393  ls
+  394  rm Dockerfile.old
+  395  vi deployment.yaml
+  396  kubectl apply -f deployment.yaml
+  397  clear
+  398  kubectl get all
+  399  history
+  400  clear
+  401  cat Dockerfile
+  402  ls
+  403  cat main.go
+  404  cat deployment.yaml
+  405  clear
+  406  cat deployment.yaml
+  407  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+  408  helm repo update
+  409  helm upgrade -i prometheus-stack prometheus-community/kube-prometheus-stack -n
+  410  helm upgrade -i prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring --create-namespace
+  411  clear
+  412  kubectl get namespaces
+  413  kubectl get all -n monitoring
+  414  kubectl get pods -n monitoring
+  415  kubectl get pods -n monitoring | wc
+  416  cd ..
+  417  clear
+  418  kubectk get all --all-namepsaces
+  419  kubectl get all --all-namepsaces
+  420  kubectl get all --all-namespaces
+  421  kubectl get all --all-namespaces > all.txt
+  422  aws s3 cp all.txt s3://farinaz-first-bucket/
+  423  ls
+  424  rm deployment.yaml
+  425  kubectl get all
+  426  delete deployment luna-http-server
+  427  kubectl delete deployment luna-http-server
+  428  clear
+  429  kubectl get all
+  430  kubectl delete service luna-http-server
+  431  kubectl get all
+  432  ls
+  433  vi deployment.yaml
+  434  vi pod-monitor.yaml
+  435  kubectl apply -f deployment.yaml
+  436  kubectl get all
+  437  kubectl apply -f pod-monitor.yaml
+  438  history
+  439  kubectl get deployments
+  440  kubectl get all
+  441  kubectl get all -w
+  442  kubectl get pods -w
+  443  clear
+  444  kubectl get deployment.yaml
+  445  kubectl get deploymenta
+  446  kubectl get deployments
+  447  kubectl describe deployment go-http-server
+  448  kubectl get pods
+  449  kubectl delete pod go-http-server-846c89cff7-22qrl
+  450  kubectl delete pod go-http-server-846c89cff7-6zdnz
+  451  kubectl get pods
+  452  kubectl delete pod go-http-server-846c89cff7-99dqz
+  453  kubectl get pods | {print awk {$1}
+  454  kubectl get pods | awk '{print $1}'
+  455  kubectl delete pod go-http-server-846c89cff7-68bbh
+  456  kubectl delete pod go-http-server-846c89cff7-9hln8
+  457  kubectl delete pod go-http-server-846c89cff7-gvfg7
+  458  kubectl delete pod go-http-server-846c89cff7-ht79j
+  459  kubectl delete pod go-http-server-846c89cff7-m65c2
+  460  kubectl delete pod go-http-server-846c89cff7-pxngk
+  461  kubectl delete pod go-http-server-846c89cff7-s6xfc
+  462  kubectl delete pod go-http-server-846c89cff7-s9jxg
+  463  kubectl delete pod go-http-server-846c89cff7-vr7pk
+  464  kubectl delete pod go-http-server-846c89cff7-vsl6c
+  465  kubectl delete pod go-http-server-846c89cff7-vwd7x
+  466  kubectl delete pod go-http-server-846c89cff7-w7dv5
+  467  kubectl delete pod go-http-server-846c89cff7-xdvrs
+  468  kubectl delete pod go-http-server-846c89cff7-z2cbs
+  469  kubectl get pods
+  470  kubectl descibe pod go-http-server-846c89cff7-jjhfn
+  471  kubectl describe pod go-http-server-846c89cff7-jjhfn
+  472  df -h
+  473  sudo du -sh /var/log/*
+  474  sudo journalctl --vacuum-size=500M
+  475  sudo rm -rf /var/log/*.log /var/log/*.gz
+  476  docker system prune -af
+  477  docker volume prune -f
+  478  sudo ctr --namespace k8s.io image prune
+  479  df -h
+  480  kubectl get pods
+  481  ls
+  482  kubectl delete -f deployment.yaml
+  483  clear
+  484  kubectl get all
+  485  mv deployment.yaml  deployment.yaml.old
+  486  vi deployment.yaml
+  487  ls
+  488  kubectl apply -f deployment.yaml
+  489  clear
+  490  kubectl get all
+  491  kubectl get services -o wide
+  492  kubectl get deployments
+  493  kubectl expose deployment myserver-deployment --type=NodePort --name=myserver-service --port=80 --target-port=8080 --node-port=30010
+  494  kubectl expose --help
+  495  kubectl expose --help | grep port
+  496  kubectl expose --help | grep type
+  497  kubectl expose --help | grep type=
+  498  kubectl expose deployment myserver-deployment --type=NodePort --name=myserver-service --port=80 --target-port=8080 --node-port=30010
+  499  vi nodeport.yaml
+  500  kubectl apply -f nodeport.yaml
+  501  kubectl get services
+  502  clear
+  503  kubectl get all
+  504  ls
+  505  rm pod-monitor.yaml
+  506  vi pod-monitor.yaml
+  507  kubectl apply -f pod-monitor.yaml
+  508  vi pod-monitor.yaml
+  509  kubectl apply -f pod-monitor.yaml
+  510  kubectl get services -n monitoring
+  511  kubectl get service prometheus-stack-kube-prom-prometheus -n monitoring -o yaml
+  512  vi nodeport.yaml
+  513  vi my-service.yaml
+  514  kubectl apply -f my-service.yaml
+  515  kubectl get services -n monitoring
+  516  clear
+  517  history

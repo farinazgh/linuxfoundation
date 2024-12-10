@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-adapter
+  namespace: monitoring
+  labels:
+    app: prometheus-adapter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-adapter
+  template:
+    metadata:
+      labels:
+        app: prometheus-adapter
+    spec:
+      containers:
+        - name: prometheus-adapter
+          image: quay.io/prometheus-operator/prometheus-adapter:v0.9.1
+          args:
+            - --config=/etc/adapter/adapter.yaml
+          volumeMounts:
+            - name: config
+              mountPath: /etc/adapter
+              readOnly: true
+          ports:
+            - containerPort: 6443
+      volumes:
+        - name: config
+          configMap:
+            name: prometheus-adapter
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-adapter
+  namespace: monitoring
+data:
+  adapter.yaml: |
+    prometheus:
+      url: http://prometheus-stack-kube-prom-prometheus.monitoring.svc.cluster.local
+      port: 9090
+    rules:
+      default: false
+      custom:
+        - seriesQuery: 'http_requests_total{namespace="default",app="myserver"}'
+          resources:
+            overrides:
+              namespace: {resource: "namespace"}
+              pod: {resource: "pod"}
+          name:
+            as: "http_requests_per_second"
+          metricsQuery: 'sum(rate(http_requests_total{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)'
