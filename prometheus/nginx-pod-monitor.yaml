@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: nginx-podmonitor
+  namespace: default
+  labels:
+    release: prometheus-operator  # Add this label
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  podMetricsEndpoints:
+    - port: metrics
+      interval: 30s
